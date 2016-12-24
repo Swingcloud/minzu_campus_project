@@ -300,19 +300,42 @@
  * 自訂文章類型 by Ellen Lee
  ***********************************************/
 
-// add_action( 'init', 'create_post_type' );
-// function create_post_type() {
-//   register_post_type( 'grass_teacher',
-//     array(
-//       'labels' => array(
-//         'name' => __( 'Teachers' ),
-//         'singular_name' => __( 'Teacher' )
-//       ),
-//       'public' => true,
-//       'has_archive' => true,
-//     )
+// function create_custom_post_course() {
+//   $labels = array(
+//     'name'               => __( 'Courses'),
+//     'singular_name'      => __( 'Course' ),
+//     'menu_name'          => '課程'
 //   );
+//   $args = array(
+//     'labels'        => $labels,
+//     'description'   => '',
+//     'public'        => true,
+//     'menu_position' => 5,
+//     "supports" => array( "title", "editor", "thumbnail", "excerpt", "trackbacks", "custom-fields", "comments", "revisions", "author", "page-attributes", "post-formats" ),
+// 		"taxonomies" => array( "category", 'course_category' ),
+//     'has_archive'   => true,
+//   );
+//   register_post_type( 'course', $args );
 // }
+// add_action( 'init', 'create_custom_post_course' );
+
+
+// function my_taxonomies_course() {
+//   $labels = array(
+//     'name'              => _x( '課程分類', 'taxonomy 名称' ),
+//     'singular_name'     => _x( '課程分類', 'taxonomy 单数名称' ),
+//   );
+//   $object_type = array('course', 'post');
+//   $args = array(
+//     'labels' => $labels,
+//     'hierarchical' => true,
+//     'show_ui' => true,
+//     'show_in_nav_menus' => true,
+//     'show_admin_column' => true,
+//   );
+//   register_taxonomy( 'course_category', $object_type, $args );
+// }
+// add_action( 'init', 'my_taxonomies_course', 0 );
 
 
 /********************************************//**
