@@ -313,3 +313,29 @@
 //     )
 //   );
 // }
+
+
+/********************************************//**
+ * 測試短程式 by Ellen Lee
+ ***********************************************/
+
+// 插入特定的一段文字
+
+function grasstw_legal_disclaimer(){
+	return '<small style="color: red;">Test for shortcode disclaimer.</small>';
+}
+
+add_shortcode('disclaimer', 'grasstw_legal_disclaimer'); //程式名稱；要呼叫的函式
+
+
+// 插入影片的內嵌程式碼，測試無效，大括號裡的內容不會被取代⋯⋯
+
+function grasstw_youtube_vid( $atts ){
+	return '<iframe src="http://player.vimeo.com/video/{$atts[id]}?title=0&amp;byline=0amp;portrait=0&amp;color=ff3333" width="{$atts[width]}" height="{$atts[height]}" frameborder="0" webkitAllowFullScreen mozallowfullscree allowFullScreen></iframe>';
+}
+
+//XBBsVn2EW6s
+
+add_shortcode('youtube', 'grasstw_youtube_vid');
+
+
