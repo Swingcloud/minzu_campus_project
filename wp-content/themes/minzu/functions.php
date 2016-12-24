@@ -1,7 +1,7 @@
 <?php
 
 		/*
-		Theme Title found on page 77 
+		Theme Title found on page 77
 		*/
 		function j2theme_filter_wp_title( $currenttitle, $sep, $seplocal ) {
 			//Grab the site name
@@ -19,15 +19,7 @@
 		}
 		// Hook into 'wp_title'
 		add_filter( 'wp_title', 'j2theme_filter_wp_title', 10, 3 );
-		
-		
-		
-			
-		
-		
-		
-		
-			
+
 		/**
 		 * Menu location registration page 90
 		 */
@@ -42,140 +34,140 @@
 				'mobile-footer-nav' => 'MOBILE Footer Menu'
 			)
 		);
-		
-		
-		
-			
-		
-		
-		
-		
-			
+
+
+
+
+
+
+
+
+
 		/**
-		 * Custom walker to put correct classes on <li>'s for main nav header top nav 
+		 * Custom walker to put correct classes on <li>'s for main nav header top nav
 		 */
 		class main_nav_header_top_walker extends Walker_Nav_Menu {
 			function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 				global $wp_query;
 				$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		
+
 				$class_names = $value = '';
-		
+
 				$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 				$classes[] = 'menu-item-' . $item->ID;
-		
+
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 				$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . ' alignleft nobull text-shad txttranup"' : '';
-		
+
 				$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 				$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-		
+
 				$output .= $indent . '<li' . $id . $value . $class_names .'>';
-		
+
 				$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 				$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 				$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 				$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		
+
 				$item_output = $args->before;
 				$item_output .= '<a'. $attributes .'>';
 				$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 				$item_output .= '</a>';
 				$item_output .= $args->after;
-		
+
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
-		
+
 		}
-		
-		
+
+
 		/**
-		 * Custom walker to put correct classes on <li>'s for sub nav header bottom nav 
+		 * Custom walker to put correct classes on <li>'s for sub nav header bottom nav
 		 */
 		class sub_nav_header_bottom_walker extends Walker_Nav_Menu {
 			function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 				global $wp_query;
 				$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		
+
 				$class_names = $value = '';
-		
+
 				$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 				$classes[] = 'menu-item-' . $item->ID;
-		
+
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 				$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . ' alignleft nobull osc-cond text-shad-lt"' : '';
-		
+
 				$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 				$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-		
+
 				$output .= $indent . '<li' . $id . $value . $class_names .'>';
-		
+
 				$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 				$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 				$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 				$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		
+
 				$item_output = $args->before;
 				$item_output .= '<a'. $attributes .'>';
 				$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 				$item_output .= '</a>';
 				$item_output .= $args->after;
-		
+
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
-		
+
 		}
-		
-		
+
+
 		/**
-		 * Custom walker to put correct classes on <li>'s for footer nav 
+		 * Custom walker to put correct classes on <li>'s for footer nav
 		 */
 		class footer_nav_walker extends Walker_Nav_Menu {
 			function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 				global $wp_query;
 				$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		
+
 				$class_names = $value = '';
-		
+
 				$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 				$classes[] = 'menu-item-' . $item->ID;
-		
+
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 				$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . ' alignleft nobull text-shad txttranup"' : '';
-		
+
 				$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 				$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-		
+
 				$output .= $indent . '<li' . $id . $value . $class_names .'>';
-		
+
 				$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 				$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 				$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 				$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		
+
 				$item_output = $args->before;
 				$item_output .= '<a'. $attributes .'>';
 				$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 				$item_output .= '</a>';
 				$item_output .= $args->after;
-		
+
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
-		
+
 		}
-		
-		
-		
-			
-		
-		
-		
-		
-			
+
+
+
+
+
+
+
+
+
 		/**
 		 * Custom paginate function found on page 227
 		 */
-		 
+
 		 function j2theme_paginate() {
 				global $paged, $wp_query;
 				$abignum = 999999999; //we need an unlikely integer
@@ -194,38 +186,38 @@
 				);
 			echo paginate_links( $args );
 		}
-		
-		
-		
-			
-		
-		
-		
-		
+
+
+
+
+
+
+
+
 		/**
-		 * Registering Post Thumbnails found in Chapter 14 
-		 */	
+		 * Registering Post Thumbnails found in Chapter 14
+		 */
 		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'slider', 530, 215, true );
 		add_image_size( 'post-thumb', 260, 175, true );
 		add_image_size( 'sm-post-thumb', 65, 50, true );
 		add_image_size( 'page-featured-image', 530, 95, true );
 		add_image_size( 'fullwidth-featured-image', 820, 95, true );
-		
-		
-		
-			
-		
-		
-		
-		
-			
+
+
+
+
+
+
+
+
+
 		/********************************************//**
 		 * Registering sidebars
 		 ***********************************************/
-		 
+
 		/**
-		 * Registering the Header "Sidebar" 
+		 * Registering the Header "Sidebar"
 		 */
 		$j2theme_header_sidebar = array(
 			'name' => 'Header',
@@ -237,9 +229,9 @@
 			'after_title' => '</h2>',
 		);
 		register_sidebar( $j2theme_header_sidebar );
-		 
+
 		/**
-		 * Registering the Aside "Sidebar" 
+		 * Registering the Aside "Sidebar"
 		 */
 		$j2theme_aside_sidebar = array(
 			'name' => 'Aside',
@@ -251,9 +243,9 @@
 			'after_title' => '</h3>',
 		);
 		register_sidebar( $j2theme_aside_sidebar );
-		 
+
 		/**
-		 * Registering the Upper Footer "Sidebar" 
+		 * Registering the Upper Footer "Sidebar"
 		 */
 		$j2theme_upperfooter_sidebar = array(
 			'name' => 'Upper Footer',
@@ -265,9 +257,9 @@
 			'after_title' => '</h3>',
 		);
 		register_sidebar( $j2theme_upperfooter_sidebar );
-		 
+
 		/**
-		 * Registering the Left Footer "Sidebar" 
+		 * Registering the Left Footer "Sidebar"
 		 */
 		$j2theme_footer_lt_sidebar = array(
 			'name' => 'Left Footer',
@@ -279,9 +271,9 @@
 			'after_title' => '</h3>',
 		);
 		register_sidebar( $j2theme_footer_lt_sidebar );
-		 
+
 		/**
-		 * Registering the Left Footer "Sidebar" 
+		 * Registering the Left Footer "Sidebar"
 		 */
 		$j2theme_footer_rt_sidebar = array(
 			'name' => 'Right Footer',
@@ -293,9 +285,9 @@
 			'after_title' => '</h3>',
 		);
 		register_sidebar( $j2theme_footer_rt_sidebar );
-		
+
 		/**
-		 * Registering the 404 "Sidebar" 
+		 * Registering the 404 "Sidebar"
 		 */
 		$j2theme_404 = array(
 			'name' => '404 Error Page',
@@ -307,15 +299,15 @@
 			'after_title' => '</h3>',
 		);
 		register_sidebar( $j2theme_404 );
-		
-		
-		
-			
-		
-		
-		
-		
-			
+
+
+
+
+
+
+
+
+
 		/**
 		 * Custom Header found on 248
 		 */
