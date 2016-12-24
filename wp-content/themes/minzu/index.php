@@ -40,6 +40,7 @@
 								<p class="meta">Posted <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate="pubdate"><?php the_time( 'M n' ); ?></time> &#149; <a href="<?php the_permalink(); ?>#comments" title="<?php the_title_attribute() ?> Comments"><?php comments_number( '0 comments', 'only 1 comment', '% comments' ); ?></a></p>
 								<?php if( !get_the_post_thumbnail() ) the_excerpt(); ?>
 							</article>
+
 						<?php endwhile; else:
 							_e( 'Sorry, no posts matched your criteria.' );
 						endif; ?>
@@ -54,5 +55,5 @@
 						</nav><!-- .pagination -->
 					<?php } ?>
 		</section>
-			<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
