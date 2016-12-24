@@ -25,7 +25,6 @@
 
 					<?php echo '<h2>'. $grasstw_teacher_name[0] .'</h2>'; ?>
 					<?php echo '<p>'. $grasstw_teacher_info[0] .'</p>'; ?>
-					<img src="<?php echo $grasstw_teacher_avatar[0]; ?>" alt="" width=200px>
 				</footer>
 
 			</article>
@@ -36,6 +35,4 @@
 </section>
 
 
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

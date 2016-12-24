@@ -37,12 +37,6 @@
 
 
 
-
-
-
-
-
-
 		/**
 		 * Custom walker to put correct classes on <li>'s for main nav header top nav
 		 */
@@ -157,13 +151,6 @@
 		}
 
 
-
-
-
-
-
-
-
 		/**
 		 * Custom paginate function found on page 227
 		 */
@@ -188,12 +175,6 @@
 		}
 
 
-
-
-
-
-
-
 		/**
 		 * Registering Post Thumbnails found in Chapter 14
 		 */
@@ -203,8 +184,6 @@
 		add_image_size( 'sm-post-thumb', 65, 50, true );
 		add_image_size( 'page-featured-image', 530, 95, true );
 		add_image_size( 'fullwidth-featured-image', 820, 95, true );
-
-
 
 
 
@@ -303,11 +282,6 @@
 
 
 
-
-
-
-
-
 		/**
 		 * Custom Header found on 248
 		 */
@@ -320,3 +294,22 @@
 			'default-image' => get_template_directory_uri() . '/images/header.jpg'
 		);
 		add_theme_support( 'custom-header', $custom_header_args );
+
+
+/********************************************//**
+ * 自訂文章類型 by Ellen Lee
+ ***********************************************/
+
+// add_action( 'init', 'create_post_type' );
+// function create_post_type() {
+//   register_post_type( 'grass_teacher',
+//     array(
+//       'labels' => array(
+//         'name' => __( 'Teachers' ),
+//         'singular_name' => __( 'Teacher' )
+//       ),
+//       'public' => true,
+//       'has_archive' => true,
+//     )
+//   );
+// }
