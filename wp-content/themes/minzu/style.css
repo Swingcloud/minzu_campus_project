@@ -1,6 +1,5 @@
 /*
 Theme Name: Grass_tw Theme
-Theme URI:
 Description: This theme is modified by J2 Theme. J2 was designed by Jeff Golenski and developed by Jesse Friedman. This theme was built with the intention of educating readers on WordPress theme development best practices.  It is free to download and use as long as credit is given to the original designer and developer.
 Author: Jesse Friedman
 Author URI: http://jes.se.com/
@@ -260,6 +259,10 @@ footer.main nav { margin: 0 0 40px 0; }
 footer.main p { color: #fff; padding: 0 0 20px 0; font-size: 1.2em; line-height: 1.4em; text-shadow: 1px 1px 4px #003474; }
 footer.main .social li { margin-top: 0!important; }
 
+
+
+
+
 /* default style */
 .selectnav { display: none; }
 
@@ -288,3 +291,22 @@ footer.main .social li { margin-top: 0!important; }
 .halfcol, .halfcolrt { width: 100%; text-align: center!important; margin: 2em 0; float: none; }
 
 }
+
+/* 以下為自行添加的元件樣式 */
+
+/* single-grass_course 裡的教師資料 */
+
+.teacher-name {
+
+}
+
+.teacher-avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.teacher-avatar img {
+  max-width: 100px !important;
+  max-height: 100px !important;
+}
+
